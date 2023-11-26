@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LL3DA: Large Language 3D Assistant.">
+  <meta name="keywords" content="3D Scene Understanding, Large Language Models, Multi-Modal Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LL3DA: Visual Interactive Instruction Tuning for Omni-3D Understanding, Reasoning, and Planning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://ch3cook-fdu.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/ch3cook-fdu/Vote2Cap-DETR">
+            Vote2Cap-DETR
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LL3DA: Visual Interactive Instruction Tuning for Omni-3D Understanding, Reasoning, and Planning.</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ch3cook-fdu.github.io/">Sijin Chen</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://chenxin.tech/">Xin Chen</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://icoz69.github.io/">Chi Zhang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Mingsheng Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.skicyyu.org/">Gang Yu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://haofei.vip/">Hao Fei</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://hongyuanzhu.github.io/">Hongyuan Zhu</a><sup>4</sup>
+            </span>
+            <span class="author-block">
+              <a>Jiayuan Fan</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://eetchen.github.io/">Tao Chen</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Fudan University,</span>
+            <span class="author-block"><sup>2</sup>Tencent PCG</span> <br>
+            <span class="author-block"><sup>3</sup>National University of Singapore</span> <br>
+            <span class="author-block"><sup>4</sup>Institute for Infocomm Research (I2R) & Centre for Frontier AI Research (CFAR), A*STAR, Singapore</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ch3cook-fdu/LL3DA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/ch3cook-fdu/LL3DA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ch3cook-fdu/LL3DA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ch3cook-fdu/LL3DA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">LL3DA</span> understands, reasons, and plans 
+        upon the 3D environments with both textual instructions and visual interactions.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in Large Multimodal Models (LMM) have made it possible for various applications in human-machine interactions. However, developing LMMs that can comprehend, reason, and plan in complex and diverse 3D environments remains a challenging topic, especially considering the demand for understanding permutation-invariant point cloud 3D representations of the 3D scene. Existing works seek help from multi-view images, and project 2D features to 3D space as 3D scene representations. This, however, leads to huge computational overhead and performance degradation. In this paper, we present LL3DA, a Large Language 3D Assistant that takes point cloud as direct input and respond to both textual-instructions and visual-prompts. This help LMMs better comprehend human interactions and further help to remove the ambiguities in cluttered 3D scenes. Experiments show that LL3DA achieves remarkable results, and surpasses various 3D vision-language models on both 3D Dense Captioning and 3D Question Answering.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            ...
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">LL3DA Capacities</h2>
+
+        <!-- Scene Descriptions. -->
+        <h3 class="title is-4">Scene Descriptions</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/scene-description.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Scene Descriptions -->
+
+        <!-- Embodied Dialogue. -->
+        <h3 class="title is-4">Embodied Dialogue</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/embodied-dialogue.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Scene Dialogue -->
+
+        <!-- Embodied Planning. -->
+        <h3 class="title is-4">Embodied Planning</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/embodied-planning.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Embodied Planning -->
+
+        <!-- 3D Dense Captioning. -->
+        <h3 class="title is-4">3D Dense Captioning</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/scanrefer.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ 3D Dense Captioning -->
+
+        <!-- 3D Question Answering. -->
+        <h3 class="title is-4">3D Question Answering</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/scanqa.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ 3D Question Answering -->
+
+        <!-- Open Vocabulary Detection. -->
+        <h3 class="title is-4">And Even, Open Vocabulary Detection</h3>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay 
+                  loop
+                  controls
+                  muted
+                  preload
+                  playsinline
+                  width="75%">
+            <source src="./static/videos/open-vocabulary.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!--/ Open Vocabulary Detection -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There are also excellent concurrent works, including: 
+            <a href="https://arxiv.org/abs/2307.12981">3D-LLM</a>, 
+            <a href="https://arxiv.org/abs/2311.12871">LEO</a>,
+            <a href="http://arxiv.org/abs/2308.16911">PointLLM</a>
+            , and <a href="https://arxiv.org/pdf/2309.00615.pdf">Point-Bind & Point-LLM</a>.
+          </p>
+          <p>
+            You might find many more by the time you are checking this 
+            <a href="https://github.com/BradyFU/Awesome-Multimodal-Large-Language-Models">repo</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{TODO}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://github.com/ch3cook-fdu">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/ch3cook-fdu" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
